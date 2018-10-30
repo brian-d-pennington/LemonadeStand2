@@ -8,6 +8,7 @@ namespace Lemonade2
 {
     static class UserInterface
     {
+        public static string playerName;
         public static void DisplayInstructions()
         {
             Console.WriteLine("WELCOME TO LEMONADE STAND");
@@ -28,6 +29,11 @@ namespace Lemonade2
                 DisplayInstructions();
             }
             Console.WriteLine("Ok.. let's get started--------------------------------------");
+        }
+        public static void GetPlayerName()
+        {
+            Console.WriteLine("Please enter your name: ");
+            playerName = Console.ReadLine();
         }
     }
 }

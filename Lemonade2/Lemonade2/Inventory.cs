@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lemonade2
 {
-    class Program
+    class Inventory
     {
-        static void Main(string[] args)
-        {
-            MainGame newGame = new MainGame();
-            newGame.RunGame();
-        }
     }
 }
