@@ -24,7 +24,7 @@ namespace Lemonade2
 
         public Budget()
         {
-
+            
         }
     }
 }
