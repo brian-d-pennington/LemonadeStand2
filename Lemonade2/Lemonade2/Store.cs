@@ -6,14 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lemonade2
 {
-    class Player
+    class Store
     {
-        public Inventory inventory;
-
-        public Player()
-        {
-            inventory = new Inventory();
-
-        }
     }
 }

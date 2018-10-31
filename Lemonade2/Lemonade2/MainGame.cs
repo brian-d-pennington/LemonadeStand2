@@ -10,13 +10,17 @@ namespace Lemonade2
     {
         public Player player;
 
-        public string playerName;
+        
 
         public MainGame()
         {
             player = new Player();
         }
 
-        
+        public void RunGame()
+        {
+            UserInterface.DisplayInstructions();
+            UserInterface.GetPlayerName();
+        }
     }
 }
