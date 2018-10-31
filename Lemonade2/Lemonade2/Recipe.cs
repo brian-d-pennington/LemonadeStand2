@@ -11,6 +11,7 @@ namespace Lemonade2
         public int lemonBagsPerBatch = 1;
         public int syrupPerBatch = 1;
         public int icePerBatch = 1;
+        public int whatToCharge = 1;
 
         public Recipe()
         {
@@ -44,6 +45,22 @@ namespace Lemonade2
             }
             Console.WriteLine("Now your recipe is " + lemonBagsPerBatch + " part(s) lemon, " + syrupPerBatch + " part(s) syrup, and " + icePerBatch + " part(s) ice.");
 
+        }
+
+        public void ChargeMore()
+        {
+            Console.WriteLine("Ok.. would you like to charge $2, $3, or $4? Beyond $2 is pushing it but you're the boss..");
+            Console.WriteLine("enter 2, 3, or 4.");
+            whatToCharge = Int32.Parse(Console.ReadLine());
+            if (whatToCharge == 2 || whatToCharge == 3 || whatToCharge == 4)
+            {
+                Console.WriteLine("Alright, your lemonade will cost $" + whatToCharge + ".");
+            }
+            else
+            {
+                Console.WriteLine("Not a valid entry. Try again.");
+                ChargeMore();
+            }
         }
     }
 }

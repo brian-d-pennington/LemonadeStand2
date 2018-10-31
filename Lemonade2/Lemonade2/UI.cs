@@ -10,6 +10,7 @@ namespace Lemonade2
     {
         public static string playerName;
         public static string tweakRecipeResponse;
+        public static string adjustPrice;
         public static void DisplayInstructions()
         {
             Console.WriteLine("WELCOME TO LEMONADE STAND");
@@ -70,7 +71,13 @@ namespace Lemonade2
             Console.WriteLine("Do you think you'd like to tweak the recipe? Y/N");
             tweakRecipeResponse = Console.ReadLine();
         }
-
+        public static void ExplainPrice()
+        {
+            Console.WriteLine("The default price for a cup* of your lemonade is $1. Would you like to test your luck and charge $2, $3, or $4?");
+            Console.WriteLine("just enter Y/N for now");
+            Console.WriteLine("(don't worry about cup costs and inventory. Turns out you steal them from your real job)");
+            adjustPrice = Console.ReadLine();
+        }
         public static void OpenLemonadeStand()
         {
             Console.WriteLine("ALRIGHT, " + playerName + ", let's open your Lemonade Stand!!");

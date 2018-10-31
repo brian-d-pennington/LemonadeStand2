@@ -52,6 +52,11 @@ namespace Lemonade2
             {
                 Console.WriteLine("Cool. Why overthink it eh?");
             }
+            UI.ExplainPrice();
+            if (UI.adjustPrice.ToLower() == "y")
+            {
+                recipe.ChargeMore();
+            }
             UI.OpenLemonadeStand();
         }
     }

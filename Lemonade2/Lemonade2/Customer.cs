@@ -8,5 +8,6 @@ namespace Lemonade2
 {
     class Customer
     {
+
     }
 }
