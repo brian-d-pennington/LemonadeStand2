@@ -16,7 +16,7 @@ namespace Lemonade2
         {
             Random r = new Random();
             degreesFahrenheit = r.Next(60, 100);
-            Console.Write("it will be " + degreesFahrenheit + " today and..");
+            Console.Write("it will be " + degreesFahrenheit + " degrees and..");
         }
         public void ChanceOfRain()
         {

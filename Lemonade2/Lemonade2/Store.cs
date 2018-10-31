@@ -8,5 +8,10 @@ namespace Lemonade2
 {
     class Store
     {
+
+        public void ShoppingCart()
+        {
+            Console.WriteLine("You currently have ");
+        }
     }
 }

@@ -31,6 +31,8 @@ namespace Lemonade2
             UI.MoreGameInstructions();
             UI.DailyWeatherExplainer();
             day.YourDailyWeather();
+            UI.OffToTheStore();
+            store.ShoppingCart(player.budget);
         }
     }
 }

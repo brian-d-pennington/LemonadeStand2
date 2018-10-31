@@ -30,6 +30,8 @@ namespace Lemonade2
             }
             Console.WriteLine("Ok.. let's get started--------------------------------------");
         }
+
+        // game setup Console Writes below
         public static void GetPlayerName()
         {
             Console.WriteLine("Please enter your name: ");
@@ -52,5 +54,14 @@ namespace Lemonade2
             Console.WriteLine("chance of rain to factor in at all times, which will lower customer turnout.");
             System.Threading.Thread.Sleep(2000); // make longer later
         }
+        public static void OffToTheStore()
+        {
+            Console.WriteLine("Now we're off to the store. Just so you know: 1 bag of lemons, 1 quart of syrup, ");
+            Console.WriteLine("and one bag of ice make make a basic batch of lemonade that can serve 50 people.");
+            Console.WriteLine("On an ideal day you may get up to 160 customers. Running out of supply mid day would");
+            Console.WriteLine("not be good.");
+            System.Threading.Thread.Sleep(2000); // make longer later
+        }
+    }
     }
 }
