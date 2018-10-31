@@ -12,6 +12,7 @@ namespace Lemonade2
         {
             MainGame newGame = new MainGame();
             newGame.RunGame();
+            Console.ReadLine();
         }
     }
 }

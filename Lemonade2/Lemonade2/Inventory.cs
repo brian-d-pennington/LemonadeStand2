@@ -14,7 +14,7 @@ namespace Lemonade2
 
         public Inventory()
         {
-
+              
         }
     }
 }

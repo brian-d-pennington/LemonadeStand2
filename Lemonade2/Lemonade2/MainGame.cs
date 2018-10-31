@@ -9,18 +9,26 @@ namespace Lemonade2
     class MainGame
     {
         public Player player;
+        public Day day;
+        public Store store;
+        public Customer customer;
+
 
         
 
         public MainGame()
         {
             player = new Player();
+            day = new Day();
+            store = new Store();
+            customer = new Customer();
         }
 
         public void RunGame()
         {
-            UserInterface.DisplayInstructions();
-            UserInterface.GetPlayerName();
+            UI.DisplayInstructions();
+            UI.GetPlayerName();
+            UI.MoreGameInstructions();
         }
     }
 }
