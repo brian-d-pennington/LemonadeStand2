@@ -8,7 +8,7 @@ namespace Lemonade2
 {
     class Store
     {
-
+        public int remainingCash;
         public void ShoppingCart(Player player)
         {
             player.GetPlayerAccount();
@@ -34,8 +34,11 @@ namespace Lemonade2
                 }
 
             }
-            
-            public int remainingCash = player.playersBudget - tally;
+            else
+            {
+                remainingCash = player.playersBudget - tally;
+                Console.WriteLine("You spent $" + tally + " and have $" + remainingCash + " left.");
+            }
             
         }
     }
