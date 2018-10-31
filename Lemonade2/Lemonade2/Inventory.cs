@@ -8,9 +8,9 @@ namespace Lemonade2
 {
     class Inventory
     {
-        public string lemonBags;
-        public string quartsOfSyrup;
-        public string bagsOfIce;
+        public int lemonBags;
+        public int quartsOfSyrup;
+        public int bagsOfIce;
 
         public Inventory()
         {

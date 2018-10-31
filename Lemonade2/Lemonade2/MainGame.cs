@@ -33,6 +33,9 @@ namespace Lemonade2
             day.YourDailyWeather();
             UI.OffToTheStore();
             store.ShoppingCart(player);
+            store.UpdatePlayersBudget(player);
+            store.UpdatePlayerInventory(player);
+            player.UpdateInventoryClass();
         }
     }
 }
