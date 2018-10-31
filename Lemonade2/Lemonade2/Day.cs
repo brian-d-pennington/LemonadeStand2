@@ -10,7 +10,7 @@ namespace Lemonade2
     {
         public Weather weather;
 
-        public int dayCount = 1;
+        public int dayCount = 0;
 
         public Day()
         {
@@ -25,6 +25,7 @@ namespace Lemonade2
 
         public void YourDailyWeather()
         {
+            DayCounter();
             weather.TodaysTemperature();
             weather.ChanceOfRain();
         }

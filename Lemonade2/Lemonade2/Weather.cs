@@ -16,6 +16,7 @@ namespace Lemonade2
         {
             Random r = new Random();
             degreesFahrenheit = r.Next(60, 100);
+            Console.Write("it will be " + degreesFahrenheit + " today and..");
         }
         public void ChanceOfRain()
         {
@@ -24,12 +25,12 @@ namespace Lemonade2
             if (rainChance <= 30)
             {
                 rainOrNot = true;
-                Console.WriteLine("Uh oh, rain is in the forecast today.");
+                Console.WriteLine(" uh oh, rain is in the forecast today.");
             }
             else
             {
                 rainOrNot = false;
-                Console.WriteLine("Clear skies today!");
+                Console.WriteLine(" clear skies today!");
             }
         }
     }
