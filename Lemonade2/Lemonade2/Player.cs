@@ -9,7 +9,6 @@ namespace Lemonade2
     class Player
     {
         public Inventory inventory;
-        public Recipe recipe;
         public Budget budget;
 
         public int playersBudget;
@@ -20,7 +19,6 @@ namespace Lemonade2
         public Player()
         {
             inventory = new Inventory();
-            recipe = new Recipe();
             budget = new Budget();
 
         }
