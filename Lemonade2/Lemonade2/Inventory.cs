@@ -8,5 +8,13 @@ namespace Lemonade2
 {
     class Inventory
     {
+        public string lemonBags;
+        public string quartsOfSyrup;
+        public string bagsOfIce;
+
+        public Inventory()
+        {
+
+        }
     }
 }
