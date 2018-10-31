@@ -12,6 +12,7 @@ namespace Lemonade2
         public Day day;
         public Store store;
         public Customer customer;
+        public Recipe recipe;
 
 
         
@@ -22,6 +23,7 @@ namespace Lemonade2
             day = new Day();
             store = new Store();
             customer = new Customer();
+            recipe = new Recipe();
         }
 
         public void RunGame()
@@ -36,6 +38,21 @@ namespace Lemonade2
             store.UpdatePlayersBudget(player);
             store.UpdatePlayerInventory(player);
             player.UpdateInventoryClass();
+            UI.StartingRecipe();
+            if (UI.tweakRecipeResponse.ToLower() == "y")
+            {
+                recipe.RecipeTweak();
+            }
+            else if (UI.tweakRecipeResponse.ToLower() != "n")
+            {
+                Console.WriteLine("please tyype morre crarefullyslijo");
+                UI.StartingRecipe();
+            }
+            else
+            {
+                Console.WriteLine("Cool. Why overthink it eh?");
+            }
+            UI.OpenLemonadeStand();
         }
     }
 }

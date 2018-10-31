@@ -71,6 +71,11 @@ namespace Lemonade2
             tweakRecipeResponse = Console.ReadLine();
         }
 
+        public static void OpenLemonadeStand()
+        {
+            Console.WriteLine("ALRIGHT, " + playerName + ", let's open your Lemonade Stand!!");
+        }
+
         
     }
     

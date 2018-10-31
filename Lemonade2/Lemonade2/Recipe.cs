@@ -24,6 +24,7 @@ namespace Lemonade2
             if (addLemon.ToLower() == "y")
             {
                 lemonBagsPerBatch++;
+                Console.WriteLine("One part lemon added.");
             }
 
             Console.WriteLine("Add one part syrup? Y/N (not gonna let you go beyond one more, for public health concerns..");
@@ -31,6 +32,7 @@ namespace Lemonade2
             if (addSyrup.ToLower() == "y")
             {
                 syrupPerBatch++;
+                Console.WriteLine("One part syrup added.");
             }
 
             Console.WriteLine("Add one more part ice? Not a bad idea on scorching days.. Y/N");
@@ -38,7 +40,10 @@ namespace Lemonade2
             if (addIce.ToLower() == "y")
             {
                 icePerBatch++;
+                Console.WriteLine("One part ice added.");
             }
+            Console.WriteLine("Now your recipe is " + lemonBagsPerBatch + " part(s) lemon, " + syrupPerBatch + " part(s) syrup, and " + icePerBatch + " part(s) ice.");
+
         }
     }
 }
