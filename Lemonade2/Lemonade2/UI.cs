@@ -45,5 +45,12 @@ namespace Lemonade2
             Console.WriteLine("as you might find certain ratios lead to better sales.");
             System.Threading.Thread.Sleep(2000); // make longer later
         }
+        public static void DailyWeatherExplainer()
+        {
+            Console.WriteLine("Ok. So your lemonade stand will take place in the summer on a busy downtown corner,");
+            Console.WriteLine("but the temp can vary between 60 and 100 degrees (Milwaukee..). Also, about a 30% ");
+            Console.WriteLine("chance of rain to factor in at all times, which will lower customer turnout.");
+            System.Threading.Thread.Sleep(2000); // make longer later
+        }
     }
 }

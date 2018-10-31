@@ -20,11 +20,13 @@ namespace Lemonade2
         public void DayCounter()
         {
             dayCount++;
+            Console.Write("On day " + dayCount + ", ");
         }
 
-        public void TodaysWeather()
+        public void YourDailyWeather()
         {
-
+            weather.TodaysTemperature();
+            weather.ChanceOfRain();
         }
     }   
 

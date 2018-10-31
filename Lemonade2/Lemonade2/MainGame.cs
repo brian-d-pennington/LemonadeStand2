@@ -29,6 +29,7 @@ namespace Lemonade2
             UI.DisplayInstructions();
             UI.GetPlayerName();
             UI.MoreGameInstructions();
+            UI.DailyWeatherExplainer();
         }
     }
 }
