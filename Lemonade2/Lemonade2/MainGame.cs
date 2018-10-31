@@ -32,7 +32,7 @@ namespace Lemonade2
             UI.DailyWeatherExplainer();
             day.YourDailyWeather();
             UI.OffToTheStore();
-            store.ShoppingCart(player.budget);
+            store.ShoppingCart(player);
         }
     }
 }

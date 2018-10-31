@@ -9,9 +9,9 @@ namespace Lemonade2
     class Store
     {
 
-        public void ShoppingCart()
+        public void ShoppingCart(Player player)
         {
-            Console.WriteLine("You currently have ");
+            Console.WriteLine("You currently have $" +player.playersBudget+ ".");
         }
     }
 }
