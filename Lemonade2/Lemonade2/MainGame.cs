@@ -11,6 +11,7 @@ namespace Lemonade2
         public Player player;
         public Day day;
         public Store store;
+        public Customer customer;
         public Customer cheapskateCustomer; //each object
         public Customer indiscriminateCustomer;
         public Customer sugarfiendCustomer;
@@ -23,6 +24,7 @@ namespace Lemonade2
         public int indiscriminateCustomers;
         public int sugarfiendCustomers;
         public int batches;
+        public int totalCustomersWhoLoseInterest;
 
 
         
@@ -79,7 +81,7 @@ namespace Lemonade2
             indiscriminateCustomer.CustomerTastes(recipe);
             cheapskateCustomer.CustomerWillingessToSpend(recipe);
             cheapskateCustomer.CustomerTastes(recipe);
-           
+            CustomersWhoLostInterest();
         }
         
         private void BatchesToMake()
@@ -147,9 +149,14 @@ namespace Lemonade2
             }
         }
         
-        private void NowTheCustomerDecides()
+        private void CustomersWhoLostInterest()
         {
+            Console.WriteLine(cheapskateCustomer.cheapskatesLoseInterest + " cheapskates walked away.");
+            Console.WriteLine(indiscriminateCustomer.indiscriminatesLoseInterest + " indiscriminate customers walked away (hence their name!)");
+            Console.WriteLine(sugarfiendCustomer.sugarfiendsLoseInterest + " sugarfiends walked away.");
 
+            totalCustomersWhoLoseInterest = cheapskateCustomer.cheapskatesLoseInterest + indiscriminateCustomer.indiscriminatesLoseInterest + sugarfiendCustomer.sugarfiendsLoseInterest;
+            Console.WriteLine("Therefore, " + totalCustomersWhoLoseInterest + " walked away today.");
         }
     }
 }

@@ -12,9 +12,10 @@ namespace Lemonade2
      
         public override void CustomerTastes(Recipe recipe)
         {
+
             if (recipe.syrupPerBatch == recipe.lemonBagsPerBatch)
             {
-                customersLoseInterest++;
+                sugarfiendsLoseInterest++;
             }
         }
 
@@ -22,7 +23,7 @@ namespace Lemonade2
         {
             if (recipe.whatToCharge > 3)
             {
-                customersLoseInterest++;
+                sugarfiendsLoseInterest++;
             }
         }
     }

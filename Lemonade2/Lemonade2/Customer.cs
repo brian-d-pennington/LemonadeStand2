@@ -8,7 +8,9 @@ namespace Lemonade2
 {
     abstract class Customer
     {
-        public int customersLoseInterest;
+        public int sugarfiendsLoseInterest;
+        public int indiscriminatesLoseInterest;
+        public int cheapskatesLoseInterest;
 
 
         public Customer()

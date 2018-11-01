@@ -15,7 +15,7 @@ namespace Lemonade2
         {
             if (recipe.lemonBagsPerBatch > 6) // silly filler example
             {
-                customersLoseInterest++;
+                indiscriminatesLoseInterest++;
             }
         }
 
@@ -23,7 +23,7 @@ namespace Lemonade2
         {
             if (recipe.whatToCharge > 2)
             {
-                customersLoseInterest++;
+                indiscriminatesLoseInterest++;
             }
         }
     }
