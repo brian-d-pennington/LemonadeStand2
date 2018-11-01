@@ -6,8 +6,22 @@ using System.Threading.Tasks;
 
 namespace Lemonade2
 {
-    class Customer
+    abstract class Customer
     {
+        public int totalCustomerPool;
 
+
+        public Customer()
+        {
+
+        }
+        public abstract void CustomerTempPreference();
+
+        public abstract void DoesCustomerCareAboutRain();
+
+        public abstract void CustomerWillingessToSpend();
+
+        public abstract void CustomerTastes();
+        
     }
 }

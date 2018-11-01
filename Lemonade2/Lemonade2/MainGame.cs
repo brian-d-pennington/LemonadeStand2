@@ -22,7 +22,6 @@ namespace Lemonade2
             player = new Player();
             day = new Day();
             store = new Store();
-            customer = new Customer();
             recipe = new Recipe();
         }
 
@@ -58,6 +57,8 @@ namespace Lemonade2
                 recipe.ChargeMore();
             }
             UI.OpenLemonadeStand();
+            day.TotalCustomersBasedOnTemp();
+            day.TotalCustomersBasedOnRain();
         }
     }
 }

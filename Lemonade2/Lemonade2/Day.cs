@@ -11,6 +11,7 @@ namespace Lemonade2
         public Weather weather;
 
         public int dayCount = 0;
+        public double totalCustomerPool;
 
         public Day()
         {
@@ -28,6 +29,27 @@ namespace Lemonade2
             DayCounter();
             weather.TodaysTemperature();
             weather.ChanceOfRain();
+        }
+
+        public void TotalCustomersBasedOnTemp() //dependent on Daily variables
+        {
+            totalCustomerPool = 160;
+            if (weather.degreesFahrenheit < 85 && weather.degreesFahrenheit >= 72)
+            {
+                totalCustomerPool = totalCustomerPool * .8;
+            }
+            else if (weather.degreesFahrenheit <= 71 )
+            {
+                totalCustomerPool = totalCustomerPool * .6;
+            }
+        }
+
+        public void TotalCustomersBasedOnRain()
+        {
+            if (weather.rainOrNot == true)
+            {
+                totalCustomerPool = totalCustomerPool * .5; //oof, harsh
+            }
         }
     }   
 
