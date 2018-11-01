@@ -60,5 +60,23 @@ namespace Lemonade2
             day.TotalCustomersBasedOnTemp();
             day.TotalCustomersBasedOnRain();
         }
+
+        private void CustomerTypeDayGenerator()
+        {
+            Random r = new Random();
+            int betweenFortyAndSeventy = r.Next(40, 70);
+            double percentOfIndiscriminate = betweenFortyAndSeventy * 0.01;
+            double indiscriminatePerDayDecimal = day.totalCustomerPool * percentOfIndiscriminate;
+            int indiscriminateCustomers = Convert.ToInt32(Math.Round(indiscriminatePerDayDecimal));
+            int updatedCustomerPool = Convert.ToInt32(day.totalCustomerPool) - indiscriminateCustomers; 
+
+            Random x = new Random();
+            int betweenFortyAndSixty = x.Next(40, 60);
+            double percentOfCheapskate = betweenFortyAndSixty * 0.01;
+            double cheapskatePerDayDecimal = updatedCustomerPool * percentOfCheapskate;
+            int cheapskateCustomers = Convert.ToInt32(Math.Round(cheapskatePerDayDecimal));
+
+
+        }
     }
 }
