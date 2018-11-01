@@ -11,7 +11,10 @@ namespace Lemonade2
 
         public override void CustomerTastes(Recipe recipe)
         {
-            //
+            if (recipe.lemonBagsPerBatch > 6) // silly filler example
+            {
+                customersLoseInterest++;
+            }
         }
 
         public override void CustomerWillingessToSpend(Recipe recipe)

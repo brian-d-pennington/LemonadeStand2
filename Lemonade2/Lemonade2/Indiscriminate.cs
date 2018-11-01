@@ -11,14 +11,20 @@ namespace Lemonade2
 
     
 
-        public override void CustomerTastes()
+        public override void CustomerTastes(Recipe recipe)
         {
-            throw new NotImplementedException();
+            if (recipe.lemonBagsPerBatch > 6) // silly filler example
+            {
+                customersLoseInterest++;
+            }
         }
 
-        public override void CustomerWillingessToSpend()
+        public override void CustomerWillingessToSpend(Recipe recipe)
         {
-            throw new NotImplementedException();
+            if (recipe.whatToCharge > 2)
+            {
+                customersLoseInterest++;
+            }
         }
     }
 }

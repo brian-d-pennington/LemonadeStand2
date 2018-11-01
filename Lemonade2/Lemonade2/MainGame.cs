@@ -19,9 +19,6 @@ namespace Lemonade2
         public List<Customer> sugarfiends = new List<Customer>();
         public Recipe recipe;
 
-        public Customer customerEvaluatesRecipe;
-        public Customer customerEvaluatesPrice;
-
         public int cheapskateCustomers; // int value
         public int indiscriminateCustomers;
         public int sugarfiendCustomers;
@@ -76,7 +73,13 @@ namespace Lemonade2
             day.TotalCustomersBasedOnRain();
             CustomerTypeDayGenerator();
             InstantiateStereotypes();
-        
+            sugarfiendCustomer.CustomerWillingessToSpend(recipe);
+            sugarfiendCustomer.CustomerTastes(recipe);
+            indiscriminateCustomer.CustomerWillingessToSpend(recipe);
+            indiscriminateCustomer.CustomerTastes(recipe);
+            cheapskateCustomer.CustomerWillingessToSpend(recipe);
+            cheapskateCustomer.CustomerTastes(recipe);
+           
         }
         
         private void BatchesToMake()
