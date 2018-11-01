@@ -11,17 +11,17 @@ namespace Lemonade2
         public Player player;
         public Day day;
         public Store store;
-        public Customer cheapskateCustomer;
+        public Customer cheapskateCustomer; //each object
         public Customer indiscriminateCustomer;
         public Customer sugarfiendCustomer;
-        public List<Customer> cheapskates;
-        public List<Customer> indiscriminates;
-        public List<Customer> sugarfiends;
+        public List<Customer> cheapskates = new List<Customer>();
+        public List<Customer> indiscriminates = new List<Customer>();
+        public List<Customer> sugarfiends = new List<Customer>();
         public Recipe recipe;
 
-        public int cheapskateCustomers;
+        public int cheapskateCustomers; // int value
         public int indiscriminateCustomers;
-        public int furtherUpdatedCustomerPool;
+        public int sugarfiendCustomers;
 
 
         
@@ -65,11 +65,21 @@ namespace Lemonade2
             {
                 recipe.ChargeMore();
             }
+            UI.BatchesToMakeInput();
+            //
             UI.OpenLemonadeStand();
             day.TotalCustomersBasedOnTemp();
             day.TotalCustomersBasedOnRain();
             CustomerTypeDayGenerator();
+            InstantiateStereotypes();
+        
         }
+        
+        private void BatchIngredientCheck()
+        {
+
+        }
+        
         // daily business generators
         private void CustomerTypeDayGenerator()
         {
@@ -85,10 +95,12 @@ namespace Lemonade2
             double percentOfCheapskate = betweenFortyAndSixty * 0.01;
             double cheapskatePerDayDecimal = updatedCustomerPool * percentOfCheapskate;
             cheapskateCustomers = Convert.ToInt32(Math.Round(cheapskatePerDayDecimal));
-            furtherUpdatedCustomerPool = updatedCustomerPool - cheapskateCustomers;
+            int furtherUpdatedCustomerPool = updatedCustomerPool - cheapskateCustomers;
 
-            Console.WriteLine("Your customer breakdown for day " + day.dayCount + " is " + indiscriminateCustomers + " indiscriminate customers, " + cheapskateCustomers + " cheapskates, and " + furtherUpdatedCustomerPool + " sugarfiends");
-            InstantiateStereotypes();
+            sugarfiendCustomers = furtherUpdatedCustomerPool;
+
+            Console.WriteLine("Your customer breakdown for day " + day.dayCount + " is " + indiscriminateCustomers + " indiscriminate customers, " + cheapskateCustomers + " cheapskates, and " + sugarfiendCustomers + " sugarfiends");
+            
         }
 
         private void InstantiateStereotypes()
@@ -105,7 +117,7 @@ namespace Lemonade2
                 indiscriminates.Add(indiscriminateCustomer);
             }
 
-            for (int i = 0; i < furtherUpdatedCustomerPool; i++)
+            for (int i = 0; i < sugarfiendCustomers; i++)
             {
                 sugarfiendCustomer = new Sugarfiend();
                 sugarfiends.Add(sugarfiendCustomer);
