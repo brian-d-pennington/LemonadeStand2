@@ -66,7 +66,8 @@ namespace Lemonade2
                 recipe.ChargeMore();
             }
             UI.BatchesToMakeInput();
-            //
+            BatchIngredientCheck();
+            UpdateInventoryAfterBatchesMade();
             UI.OpenLemonadeStand();
             day.TotalCustomersBasedOnTemp();
             day.TotalCustomersBasedOnRain();
@@ -77,7 +78,18 @@ namespace Lemonade2
         
         private void BatchIngredientCheck()
         {
+            if (UI.batches > player.inventory.lemonBags || UI.batches > player.inventory.quartsOfSyrup || UI.batches > player.inventory.bagsOfIce)
+            {
+                Console.WriteLine("You don't have enough ingredients to make that.");
+                UI.BatchesToMakeInput();
+            }
+        }
 
+        private void UpdateInventoryAfterBatchesMade()
+        {
+            player.inventory.lemonBags = player.inventory.lemonBags - UI.batches;
+            player.inventory.quartsOfSyrup = player.inventory.quartsOfSyrup - UI.batches;
+            player.inventory.bagsOfIce = player.inventory.bagsOfIce - UI.batches;
         }
         
         // daily business generators
