@@ -15,13 +15,10 @@ namespace Lemonade2
         {
 
         }
-        public abstract void CustomerTempPreference();
 
-        public abstract void DoesCustomerCareAboutRain();
+        public abstract void CustomerWillingessToSpend(Recipe recipe);
 
-        public abstract void CustomerWillingessToSpend();
-
-        public abstract void CustomerTastes();
+        public abstract void CustomerTastes(Recipe recipe);
         
     }
 }

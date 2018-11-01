@@ -19,6 +19,9 @@ namespace Lemonade2
         public List<Customer> sugarfiends = new List<Customer>();
         public Recipe recipe;
 
+        public Customer customerEvaluatesRecipe;
+        public Customer customerEvaluatesPrice;
+
         public int cheapskateCustomers; // int value
         public int indiscriminateCustomers;
         public int sugarfiendCustomers;

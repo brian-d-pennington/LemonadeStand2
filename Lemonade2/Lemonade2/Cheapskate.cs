@@ -9,14 +9,17 @@ namespace Lemonade2
     class Cheapskate:Customer
     {
 
-        public override void CustomerTastes()
+        public override void CustomerTastes(Recipe recipe)
         {
-            throw new NotImplementedException();
+            //
         }
 
-        public override void CustomerWillingessToSpend()
+        public override void CustomerWillingessToSpend(Recipe recipe)
         {
-            throw new NotImplementedException();
+            if (recipe.whatToCharge > 1)
+            {
+                customersLoseInterest++;
+            }
         }
     }
 }
