@@ -22,6 +22,7 @@ namespace Lemonade2
         public int cheapskateCustomers; // int value
         public int indiscriminateCustomers;
         public int sugarfiendCustomers;
+        public int batches;
 
 
         
@@ -65,8 +66,7 @@ namespace Lemonade2
             {
                 recipe.ChargeMore();
             }
-            UI.BatchesToMakeInput();
-            BatchIngredientCheck();
+            BatchesToMake();
             UpdateInventoryAfterBatchesMade();
             UI.OpenLemonadeStand();
             day.TotalCustomersBasedOnTemp();
@@ -76,20 +76,25 @@ namespace Lemonade2
         
         }
         
-        private void BatchIngredientCheck()
+        private void BatchesToMake()
         {
-            if (UI.batches > player.inventory.lemonBags || UI.batches > player.inventory.quartsOfSyrup || UI.batches > player.inventory.bagsOfIce)
+            Console.WriteLine("Finally, how many batches do you want to make today?");
+            Console.WriteLine("You cannot exceed the amount of ingredients you have, of course.");
+            Console.WriteLine("Also, a batch is only good for an afternoon, considering the melting ice and all.");
+            Console.WriteLine("So.. how many batches do you want to make?");
+            batches = Int32.Parse(Console.ReadLine());
+            if (batches > player.inventory.lemonBags || batches > player.inventory.quartsOfSyrup || batches > player.inventory.bagsOfIce)
             {
                 Console.WriteLine("You don't have enough ingredients to make that.");
-                UI.BatchesToMakeInput();
+                BatchesToMake();
             }
         }
 
         private void UpdateInventoryAfterBatchesMade()
         {
-            player.inventory.lemonBags = player.inventory.lemonBags - UI.batches;
-            player.inventory.quartsOfSyrup = player.inventory.quartsOfSyrup - UI.batches;
-            player.inventory.bagsOfIce = player.inventory.bagsOfIce - UI.batches;
+            player.inventory.lemonBags = player.inventory.lemonBags - batches;
+            player.inventory.quartsOfSyrup = player.inventory.quartsOfSyrup - batches;
+            player.inventory.bagsOfIce = player.inventory.bagsOfIce - batches;
         }
         
         // daily business generators
@@ -134,6 +139,11 @@ namespace Lemonade2
                 sugarfiendCustomer = new Sugarfiend();
                 sugarfiends.Add(sugarfiendCustomer);
             }
+        }
+        
+        private void NowTheCustomerDecides()
+        {
+
         }
     }
 }

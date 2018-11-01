@@ -9,15 +9,7 @@ namespace Lemonade2
     class Indiscriminate:Customer
     {
 
-        public override void CustomerTempPreference()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void DoesCustomerCareAboutRain()
-        {
-            throw new NotImplementedException();
-        }
+    
 
         public override void CustomerTastes()
         {

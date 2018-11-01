@@ -11,7 +11,6 @@ namespace Lemonade2
         public static string playerName;
         public static string tweakRecipeResponse;
         public static string adjustPrice;
-        public static int batches;
         public static void DisplayInstructions()
         {
             Console.WriteLine("WELCOME TO LEMONADE STAND");
@@ -78,14 +77,6 @@ namespace Lemonade2
             Console.WriteLine("just enter Y/N for now");
             Console.WriteLine("(don't worry about cup costs and inventory. Turns out you steal them from your real job)");
             adjustPrice = Console.ReadLine();
-        }
-        public static void BatchesToMakeInput()
-        {
-            Console.WriteLine("Finally, how many batches do you want to make today?");
-            Console.WriteLine("You cannot exceed the amount of ingredients you have, of course.");
-            Console.WriteLine("Also, a batch is only good for an afternoon, considering the melting ice and all.");
-            Console.WriteLine("So.. how many batches do you want to make?");
-            batches = Int32.Parse(Console.ReadLine());
         }
 
         public static void OpenLemonadeStand()

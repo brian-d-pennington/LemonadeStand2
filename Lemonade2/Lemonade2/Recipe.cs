@@ -62,5 +62,10 @@ namespace Lemonade2
                 ChargeMore();
             }
         }
+
+        public void BatchesToMake()
+        {
+            
+        }
     }
 }
