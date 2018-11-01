@@ -8,7 +8,7 @@ namespace Lemonade2
 {
     abstract class Customer
     {
-        public int totalCustomerPool;
+        
 
 
         public Customer()

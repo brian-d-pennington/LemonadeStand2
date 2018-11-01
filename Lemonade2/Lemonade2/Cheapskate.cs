@@ -8,5 +8,24 @@ namespace Lemonade2
 {
     class Cheapskate:Customer
     {
+        public override void CustomerTempPreference()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void DoesCustomerCareAboutRain()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void CustomerTastes()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void CustomerWillingessToSpend()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
