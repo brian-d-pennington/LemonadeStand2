@@ -8,22 +8,25 @@ namespace Lemonade2
 {
     class Sugarfiend:Customer
     {
-        public int sugarfiendsLoseInterest;
+        public Sugarfiend()
+        {
+            
+        }
 
-        public override void CustomerTastes(Recipe recipe)
+        public override void CustomerTastes(Recipe recipe, Day day)
         {
 
             if (recipe.syrupPerBatch == recipe.lemonBagsPerBatch)
             {
-                sugarfiendsLoseInterest++;
+                day.LostCustomers++;
             }
         }
 
-        public override void CustomerWillingessToSpend(Recipe recipe)
+        public override void CustomerWillingessToSpend(Recipe recipe, Day day)
         {
             if (recipe.whatToCharge > 3)
             {
-                sugarfiendsLoseInterest++;
+                day.LostCustomers++;
             }
         }
     }

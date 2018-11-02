@@ -8,22 +8,24 @@ namespace Lemonade2
 {
     class Indiscriminate:Customer
     {
+        public Indiscriminate()
+        {
+            
+        }
 
-        public int indiscriminatesLoseInterest;
-
-        public override void CustomerTastes(Recipe recipe)
+        public override void CustomerTastes(Recipe recipe, Day day)
         {
             if (recipe.lemonBagsPerBatch > 6) // silly filler example
             {
-                indiscriminatesLoseInterest++;
+                day.LostCustomers++;
             }
         }
 
-        public override void CustomerWillingessToSpend(Recipe recipe)
+        public override void CustomerWillingessToSpend(Recipe recipe, Day day)
         {
             if (recipe.whatToCharge > 2)
             {
-                indiscriminatesLoseInterest++;
+                day.LostCustomers++;
             }
         }
     }

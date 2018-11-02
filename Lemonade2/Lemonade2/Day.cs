@@ -9,7 +9,7 @@ namespace Lemonade2
     class Day
     {
         public Weather weather;
-
+        public int LostCustomers = 0;
         public int dayCount = 0;
         public double totalCustomerPool;
 

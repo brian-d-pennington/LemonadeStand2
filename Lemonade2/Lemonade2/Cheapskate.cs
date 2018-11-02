@@ -8,21 +8,24 @@ namespace Lemonade2
 {
     class Cheapskate:Customer
     {
-        public int cheapskatesLoseInterest;
+        public Cheapskate()
+        {
+            
+        }
 
-        public override void CustomerTastes(Recipe recipe)
+        public override void CustomerTastes(Recipe recipe, Day day)
         {
             if (recipe.lemonBagsPerBatch > 6) // silly filler example
             {
-                cheapskatesLoseInterest++;
+                day.LostCustomers++;
             }
         }
 
-        public override void CustomerWillingessToSpend(Recipe recipe)
+        public override void CustomerWillingessToSpend(Recipe recipe, Day day)
         {
             if (recipe.whatToCharge > 1)
             {
-                cheapskatesLoseInterest++;
+                day.LostCustomers++;
             }
         }
     }

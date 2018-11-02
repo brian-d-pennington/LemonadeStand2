@@ -77,20 +77,20 @@ namespace Lemonade2
             InstantiateStereotypes();
             for (int i = 0; i < sugarfiends.Count; i++)
             {
-                sugarfiends[i].CustomerWillingessToSpend(recipe);
-                sugarfiends[i].CustomerTastes(recipe);
+                sugarfiends[i].CustomerWillingessToSpend(recipe, day);
+                sugarfiends[i].CustomerTastes(recipe, day);
             }
             for (int i = 0; i < indiscriminates.Count; i++)
             {
-                indiscriminates[i].CustomerWillingessToSpend(recipe);
-                indiscriminates[i].CustomerTastes(recipe);
+                indiscriminates[i].CustomerWillingessToSpend(recipe, day);
+                indiscriminates[i].CustomerTastes(recipe, day);
             }
             for (int i = 0; i < cheapskates.Count; i++)
             {
-                cheapskates[i].CustomerWillingessToSpend(recipe);
-                cheapskates[i].CustomerTastes(recipe);
+                cheapskates[i].CustomerWillingessToSpend(recipe, day);
+                cheapskates[i].CustomerTastes(recipe, day);
             }
-            CustomersWhoLostInterest();
+            CustomersWhoLostInterestToday();
         }
         
         private void BatchesToMake()
@@ -158,14 +158,10 @@ namespace Lemonade2
             }
         }
         
-        private void CustomersWhoLostInterest()
+        private void CustomersWhoLostInterestToday()
         {
-            Console.WriteLine(cheapskateCustomer.cheapskatesLoseInterest + " cheapskates walked away.");
-            Console.WriteLine(indiscriminateCustomer.indiscriminatesLoseInterest + " indiscriminate customers walked away (hence their name!)");
-            Console.WriteLine(sugarfiendCustomer.sugarfiendsLoseInterest + " sugarfiends walked away.");
-
-            totalCustomersWhoLoseInterest = cheapskateCustomer.cheapskatesLoseInterest + indiscriminateCustomer.indiscriminatesLoseInterest + sugarfiendCustomer.sugarfiendsLoseInterest;
-            Console.WriteLine("Therefore, " + totalCustomersWhoLoseInterest + " walked away today.");
+            Console.WriteLine("You lost " + day.LostCustomers + " potential customers today. Consider tweaking your recipe or lowering your price.");
+            Console.WriteLine("(hint: it's probably evident in the numbers whom you turned away)");
         }
     }
 }
