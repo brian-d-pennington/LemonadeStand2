@@ -75,12 +75,21 @@ namespace Lemonade2
             day.TotalCustomersBasedOnRain();
             CustomerTypeDayGenerator();
             InstantiateStereotypes();
-            sugarfiendCustomer.CustomerWillingessToSpend(recipe);
-            sugarfiendCustomer.CustomerTastes(recipe);
-            indiscriminateCustomer.CustomerWillingessToSpend(recipe);
-            indiscriminateCustomer.CustomerTastes(recipe);
-            cheapskateCustomer.CustomerWillingessToSpend(recipe);
-            cheapskateCustomer.CustomerTastes(recipe);
+            for (int i = 0; i < sugarfiends.Count; i++)
+            {
+                sugarfiends[i].CustomerWillingessToSpend(recipe);
+                sugarfiends[i].CustomerTastes(recipe);
+            }
+            for (int i = 0; i < indiscriminates.Count; i++)
+            {
+                indiscriminates[i].CustomerWillingessToSpend(recipe);
+                indiscriminates[i].CustomerTastes(recipe);
+            }
+            for (int i = 0; i < cheapskates.Count; i++)
+            {
+                cheapskates[i].CustomerWillingessToSpend(recipe);
+                cheapskates[i].CustomerTastes(recipe);
+            }
             CustomersWhoLostInterest();
         }
         

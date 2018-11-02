@@ -9,7 +9,7 @@ namespace Lemonade2
     class Indiscriminate:Customer
     {
 
-    
+        public int indiscriminatesLoseInterest;
 
         public override void CustomerTastes(Recipe recipe)
         {

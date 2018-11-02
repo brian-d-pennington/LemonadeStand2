@@ -8,8 +8,8 @@ namespace Lemonade2
 {
     class Sugarfiend:Customer
     {
+        public int sugarfiendsLoseInterest;
 
-     
         public override void CustomerTastes(Recipe recipe)
         {
 

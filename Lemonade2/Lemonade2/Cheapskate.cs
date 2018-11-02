@@ -8,6 +8,7 @@ namespace Lemonade2
 {
     class Cheapskate:Customer
     {
+        public int cheapskatesLoseInterest;
 
         public override void CustomerTastes(Recipe recipe)
         {
