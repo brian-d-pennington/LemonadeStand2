@@ -63,9 +63,6 @@ namespace Lemonade2
             }
         }
 
-        public void BatchesToMake()
-        {
-            
-        }
+        
     }
 }

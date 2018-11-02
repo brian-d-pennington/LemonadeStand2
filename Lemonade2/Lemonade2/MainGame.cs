@@ -11,7 +11,6 @@ namespace Lemonade2
         public Player player;
         public Day day;
         public Store store;
-        public Customer customer;
         public Customer cheapskateCustomer; //each object
         public Customer indiscriminateCustomer;
         public Customer sugarfiendCustomer;
@@ -24,7 +23,7 @@ namespace Lemonade2
         public int indiscriminateCustomers;
         public int sugarfiendCustomers;
         public int batches;
-        public int totalCustomersWhoLoseInterest;
+        public int dailyTotalPotentialCustomers;
 
 
         
@@ -91,6 +90,8 @@ namespace Lemonade2
                 cheapskates[i].CustomerTastes(recipe, day);
             }
             CustomersWhoLostInterestToday();
+            DidPlayerMakeEnoughLemonade();
+            DailyRevenueCalculator();
         }
         
         private void BatchesToMake()
@@ -133,6 +134,7 @@ namespace Lemonade2
 
             sugarfiendCustomers = furtherUpdatedCustomerPool;
 
+            dailyTotalPotentialCustomers = sugarfiendCustomers + cheapskateCustomers + indiscriminateCustomers;
             Console.WriteLine("Your customer breakdown for day " + day.dayCount + " is " + indiscriminateCustomers + " indiscriminate customers, " + cheapskateCustomers + " cheapskates, and " + sugarfiendCustomers + " sugarfiends");
             
         }
@@ -160,8 +162,33 @@ namespace Lemonade2
         
         private void CustomersWhoLostInterestToday()
         {
-            Console.WriteLine("You lost " + day.LostCustomers + " potential customers today. Consider tweaking your recipe or lowering your price.");
-            Console.WriteLine("(hint: it's probably evident in the numbers whom you turned away)");
+            if (day.LostCustomers == 0)
+            {
+                Console.WriteLine("You didn't turn away any customers. Sounds like you found a crowd pleasing recipe!");
+                Console.WriteLine("(just hope it's profitable..)");
+            }
+            else
+            {
+                Console.WriteLine("You lost " + day.LostCustomers + " potential customers today. Consider tweaking your recipe or lowering your price.");
+                Console.WriteLine("(hint: it's probably evident in the numbers whom you turned away)");
+            }
+        }
+
+        public void DidPlayerMakeEnoughLemonade()
+        {
+            int peopleServedPerBatch = batches * 50;
+            if (dailyTotalPotentialCustomers > peopleServedPerBatch)
+            {
+                int turnedAway = dailyTotalPotentialCustomers - peopleServedPerBatch;
+                Console.WriteLine("Oh no, you ran out of lemonade and turned away " + turnedAway + " customers.");
+            }
+        }
+        //
+        public void DailyRevenueCalculator()
+        {
+            int customersToday = dailyTotalPotentialCustomers - day.LostCustomers;
+            day.dailyRevenue = recipe.whatToCharge * customersToday;
+            Console.WriteLine("You brought in $" + day.dailyRevenue + " today.");
         }
     }
 }

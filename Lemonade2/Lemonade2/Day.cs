@@ -12,6 +12,7 @@ namespace Lemonade2
         public int LostCustomers = 0;
         public int dayCount = 0;
         public double totalCustomerPool;
+        public int dailyRevenue;
 
         public Day()
         {
@@ -51,6 +52,8 @@ namespace Lemonade2
                 totalCustomerPool = totalCustomerPool * .5; //oof, harsh
             }
         }
+
+        
     }   
 
 }
