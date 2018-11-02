@@ -42,56 +42,60 @@ namespace Lemonade2
             UI.GetPlayerName();
             UI.MoreGameInstructions();
             UI.DailyWeatherExplainer();
-            day.YourDailyWeather();
-            UI.OffToTheStore();
-            store.ShoppingCart(player);
-            store.UpdatePlayersBudget(player);
-            store.UpdatePlayerInventory(player);
-            player.UpdateInventoryClass();
-            UI.StartingRecipe();
-            if (UI.tweakRecipeResponse.ToLower() == "y")
+            for (int j = 0; j < 7; j++)
             {
-                recipe.RecipeTweak();
-            }
-            else if (UI.tweakRecipeResponse.ToLower() != "n")
-            {
-                Console.WriteLine("please tyype morre crarefullyslijo");
+                day.YourDailyWeather();
+                UI.OffToTheStore();
+                store.ShoppingCart(player);
+                store.UpdatePlayersBudget(player);
+                store.UpdatePlayerInventory(player);
+                player.UpdateInventoryClass();
                 UI.StartingRecipe();
-            }
-            else
-            {
-                Console.WriteLine("Cool. Why overthink it eh?");
-            }
-            UI.ExplainPrice();
-            if (UI.adjustPrice.ToLower() == "y")
-            {
-                recipe.ChargeMore();
-            }
-            BatchesToMake();
-            UpdateInventoryAfterBatchesMade();
-            UI.OpenLemonadeStand();
-            day.TotalCustomersBasedOnTemp();
-            day.TotalCustomersBasedOnRain();
-            CustomerTypeDayGenerator();
-            InstantiateStereotypes();
-            for (int i = 0; i < sugarfiends.Count; i++)
-            {
-                sugarfiends[i].CustomerWillingessToSpend(recipe, day);
-                sugarfiends[i].CustomerTastes(recipe, day);
-            }
-            for (int i = 0; i < indiscriminates.Count; i++)
-            {
-                indiscriminates[i].CustomerWillingessToSpend(recipe, day);
-                indiscriminates[i].CustomerTastes(recipe, day);
-            }
-            for (int i = 0; i < cheapskates.Count; i++)
-            {
-                cheapskates[i].CustomerWillingessToSpend(recipe, day);
-                cheapskates[i].CustomerTastes(recipe, day);
-            }
-            CustomersWhoLostInterestToday();
-            DidPlayerMakeEnoughLemonade();
-            DailyRevenueCalculator();
+                if (UI.tweakRecipeResponse.ToLower() == "y")
+                {
+                    recipe.RecipeTweak();
+                }
+                else if (UI.tweakRecipeResponse.ToLower() != "n")
+                {
+                    Console.WriteLine("please tyype morre crarefullyslijo");
+                    UI.StartingRecipe();
+                }
+                else
+                {
+                    Console.WriteLine("Cool. Why overthink it eh?");
+                }
+                UI.ExplainPrice();
+                if (UI.adjustPrice.ToLower() == "y")
+                {
+                    recipe.ChargeMore();
+                }
+                BatchesToMake();
+                UpdateInventoryAfterBatchesMade();
+                UI.OpenLemonadeStand();
+                day.TotalCustomersBasedOnTemp();
+                day.TotalCustomersBasedOnRain();
+                CustomerTypeDayGenerator();
+                InstantiateStereotypes();
+                for (int i = 0; i < sugarfiends.Count; i++)
+                {
+                    sugarfiends[i].CustomerWillingessToSpend(recipe, day);
+                    sugarfiends[i].CustomerTastes(recipe, day);
+                }
+                for (int i = 0; i < indiscriminates.Count; i++)
+                {
+                    indiscriminates[i].CustomerWillingessToSpend(recipe, day);
+                    indiscriminates[i].CustomerTastes(recipe, day);
+                }
+                for (int i = 0; i < cheapskates.Count; i++)
+                {
+                    cheapskates[i].CustomerWillingessToSpend(recipe, day);
+                    cheapskates[i].CustomerTastes(recipe, day);
+                }
+                CustomersWhoLostInterestToday();
+                DidPlayerMakeEnoughLemonade();
+                DailyRevenueCalculator();
+                UpdateAccountAtEndOfDay();
+            } // close 7 day for loop
         }
         
         private void BatchesToMake()
@@ -174,7 +178,7 @@ namespace Lemonade2
             }
         }
 
-        public void DidPlayerMakeEnoughLemonade()
+        private void DidPlayerMakeEnoughLemonade()
         {
             int peopleServedPerBatch = batches * 50;
             if (dailyTotalPotentialCustomers > peopleServedPerBatch)
@@ -184,11 +188,17 @@ namespace Lemonade2
             }
         }
         //
-        public void DailyRevenueCalculator()
+        private void DailyRevenueCalculator()
         {
             int customersToday = dailyTotalPotentialCustomers - day.LostCustomers;
             day.dailyRevenue = recipe.whatToCharge * customersToday;
             Console.WriteLine("You brought in $" + day.dailyRevenue + " today.");
+        }
+
+        private void UpdateAccountAtEndOfDay()
+        {
+            player.budget.AccessPlayerAccount = player.budget.AccessPlayerAccount + day.dailyRevenue;
+            Console.WriteLine("You have $" + player.budget.AccessPlayerAccount + " at the end of " + day.dayCount + "!");
         }
     }
 }
