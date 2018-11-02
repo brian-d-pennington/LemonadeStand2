@@ -1,0 +1,12 @@
+Single Responsibility Principle: I have many methods throughout the game that do very specific things and are
+literally named (update inventory, update account, etc.) However I feel like some of my classes could be better
+about sticking to single tasks. MainGame was initially supposed to only carry RunGame() but it kind of morphed
+into a central game controller. A few classes are pretty good about it though: Budget, Player (has), Customer:Children,
+etc.
+
+Open-Closed Principle: similar to the Rock Paper.. project, I included an abstract class (Customer) with 3 children
+(Sugarfiend, Cheapskate, and Indiscriminate) which overriden abstract methods with unique conditionals. In the 
+future, it might be fun to add even more customer-types and switch them up randomly each day (the game can
+currently get figured out a few days in and once the customer patterns are figured out) and that would be easy to
+do with this design.
+
