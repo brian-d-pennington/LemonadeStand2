@@ -11,9 +11,6 @@ namespace Lemonade2
         public Player player;
         public Day day;
         public Store store;
-        public Customer cheapskateCustomer; //each object
-        public Customer indiscriminateCustomer;
-        public Customer sugarfiendCustomer;
         public List<Customer> cheapskates = new List<Customer>();
         public List<Customer> indiscriminates = new List<Customer>();
         public List<Customer> sugarfiends = new List<Customer>();
@@ -44,14 +41,11 @@ namespace Lemonade2
             UI.DailyWeatherExplainer();
             for (int j = 0; j < 7; j++)
             {
+
                 day.YourDailyWeather();
                 if (day.dayCount == 1)
                 {
                     UI.OffToTheStore();
-                }
-                if (day.dayCount != 1)
-                {
-                    day.LostCustomers = 0; //bandaid fix, woo
                 }
                 store.ShoppingCart(player);
                 store.UpdatePlayersBudget(player);
@@ -76,6 +70,7 @@ namespace Lemonade2
                 {
                     recipe.ChargeMore();
                 }
+                recipe.RecipeRatioReminder();
                 BatchesToMake();
                 UpdateInventoryAfterBatchesMade();
                 UI.OpenLemonadeStand();
@@ -102,6 +97,11 @@ namespace Lemonade2
                 DidPlayerMakeEnoughLemonade();
                 DailyRevenueCalculator();
                 UpdateAccountAtEndOfDay();
+                player.DisplayInventory();
+                day.LostCustomersReset();
+                cheapskates = new List<Customer>();
+                indiscriminates = new List<Customer>();
+                sugarfiends = new List<Customer>();
             } // close 7 day for loop
         }
         
@@ -154,33 +154,33 @@ namespace Lemonade2
         {
             for (int i = 0; i < cheapskateCustomers; i++)
             {
-                cheapskateCustomer = new Cheapskate();
-                cheapskates.Add(cheapskateCustomer);
+                // cheapskateCustomer = new Cheapskate();
+                cheapskates.Add(new Cheapskate());
             }
 
             for (int i = 0; i < indiscriminateCustomers; i++)
             {
-                indiscriminateCustomer = new Indiscriminate();
-                indiscriminates.Add(indiscriminateCustomer);
+                // indiscriminateCustomer = new Indiscriminate();
+                indiscriminates.Add(new Indiscriminate());
             }
 
             for (int i = 0; i < sugarfiendCustomers; i++)
             {
-                sugarfiendCustomer = new Sugarfiend();
-                sugarfiends.Add(sugarfiendCustomer);
+                // sugarfiendCustomer = new Sugarfiend();
+                sugarfiends.Add(new Sugarfiend());
             }
         }
         
         private void CustomersWhoLostInterestToday()
         {
-            if (day.LostCustomers == 0)
+            if (day.lostCustomers == 0)
             {
                 Console.WriteLine("You didn't turn away any customers. Sounds like you found a crowd pleasing recipe!");
                 Console.WriteLine("(just hope it's profitable..)");
             }
             else
             {
-                Console.WriteLine("You lost " + day.LostCustomers + " potential customers today. Consider tweaking your recipe or lowering your price.");
+                Console.WriteLine("You lost " + day.lostCustomers + " potential customers today. Consider tweaking your recipe or lowering your price.");
                 Console.WriteLine("(hint: it's probably evident in the numbers whom you turned away)");
             }
         }
@@ -197,7 +197,7 @@ namespace Lemonade2
         //
         private void DailyRevenueCalculator()
         {
-            int customersToday = dailyTotalPotentialCustomers - day.LostCustomers;
+            int customersToday = dailyTotalPotentialCustomers - day.lostCustomers;
             day.dailyRevenue = recipe.whatToCharge * customersToday;
             Console.WriteLine("You brought in $" + day.dailyRevenue + " today.");
         }

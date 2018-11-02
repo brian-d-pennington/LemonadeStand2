@@ -18,7 +18,7 @@ namespace Lemonade2
 
             if (recipe.syrupPerBatch == recipe.lemonBagsPerBatch)
             {
-                day.LostCustomers++;
+                day.lostCustomers++;
             }
         }
 
@@ -26,7 +26,7 @@ namespace Lemonade2
         {
             if (recipe.whatToCharge > 3)
             {
-                day.LostCustomers++;
+                day.lostCustomers++;
             }
         }
     }

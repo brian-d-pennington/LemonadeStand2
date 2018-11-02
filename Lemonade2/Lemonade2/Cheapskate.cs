@@ -17,7 +17,7 @@ namespace Lemonade2
         {
             if (recipe.lemonBagsPerBatch > 6) // silly filler example
             {
-                day.LostCustomers++;
+                day.lostCustomers++;
             }
         }
 
@@ -25,7 +25,7 @@ namespace Lemonade2
         {
             if (recipe.whatToCharge > 1)
             {
-                day.LostCustomers++;
+                day.lostCustomers++;
             }
         }
     }

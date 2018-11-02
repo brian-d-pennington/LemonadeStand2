@@ -9,7 +9,7 @@ namespace Lemonade2
     class Day
     {
         public Weather weather;
-        public int LostCustomers = 0;
+        public int lostCustomers = 0;
         public int dayCount = 0;
         public double totalCustomerPool;
         public int dailyRevenue;
@@ -53,7 +53,10 @@ namespace Lemonade2
             }
         }
 
-        
+        public int LostCustomersReset()
+        {
+            return lostCustomers = 0;
+        }
     }   
 
 }

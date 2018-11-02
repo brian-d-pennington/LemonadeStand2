@@ -43,8 +43,11 @@ namespace Lemonade2
                 icePerBatch++;
                 Console.WriteLine("One part ice added.");
             }
-            Console.WriteLine("Now your recipe is " + lemonBagsPerBatch + " part(s) lemon, " + syrupPerBatch + " part(s) syrup, and " + icePerBatch + " part(s) ice.");
+        }
 
+        public void RecipeRatioReminder()
+        {
+            Console.WriteLine("Now your recipe is " + lemonBagsPerBatch + " part(s) lemon, " + syrupPerBatch + " part(s) syrup, and " + icePerBatch + " part(s) ice.");
         }
 
         public void ChargeMore()
