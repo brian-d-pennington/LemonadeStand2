@@ -45,7 +45,14 @@ namespace Lemonade2
             for (int j = 0; j < 7; j++)
             {
                 day.YourDailyWeather();
-                UI.OffToTheStore();
+                if (day.dayCount == 1)
+                {
+                    UI.OffToTheStore();
+                }
+                if (day.dayCount != 1)
+                {
+                    day.LostCustomers = 0; //bandaid fix, woo
+                }
                 store.ShoppingCart(player);
                 store.UpdatePlayersBudget(player);
                 store.UpdatePlayerInventory(player);

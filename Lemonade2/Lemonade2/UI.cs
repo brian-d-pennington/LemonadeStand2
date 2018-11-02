@@ -62,6 +62,7 @@ namespace Lemonade2
             Console.WriteLine("and one bag of ice make make a basic batch of lemonade that can serve 50 people.");
             Console.WriteLine("On an ideal day you may get up to 160 customers. Running out of supply mid day would");
             Console.WriteLine("not be good.");
+
             System.Threading.Thread.Sleep(2000); // make longer later
         }
 
