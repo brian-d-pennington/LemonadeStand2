@@ -44,7 +44,7 @@ namespace Lemonade2
                 {
                     UI.OffToTheStore();
                 }
-                //PlayerGoesToStore();
+                PlayerGoesToStore();
                 player.UpdateInventoryClass();
                 UI.StartingRecipe();
                 if (UI.tweakRecipeResponse.ToLower() == "y")
@@ -97,7 +97,7 @@ namespace Lemonade2
                 ResetCustomerListsForNewDay();
                 
             } // close 7 day for loop
-            //final tally (if anyone makes it this far?)
+            GameFinale();
         }
 
 
@@ -223,6 +223,12 @@ namespace Lemonade2
             cheapskates = new List<Customer>();
             indiscriminates = new List<Customer>();
             sugarfiends = new List<Customer>();
+        }
+
+        private void GameFinale()
+        {
+            Console.WriteLine("Congratulations, " + UI.playerName + ", you have completed a week at your lemonade stand!");
+            Console.WriteLine("You started the week with $50 and ended with $" + player.budget.AccessPlayerAccount );
         }
     }
 }
