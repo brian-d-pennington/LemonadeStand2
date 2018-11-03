@@ -99,9 +99,8 @@ namespace Lemonade2
                 UpdateAccountAtEndOfDay();
                 player.DisplayInventory();
                 day.LostCustomersReset();
-                cheapskates = new List<Customer>();
-                indiscriminates = new List<Customer>();
-                sugarfiends = new List<Customer>();
+                ResetCustomerListsForNewDay();
+                
             } // close 7 day for loop
         }
         
@@ -121,9 +120,9 @@ namespace Lemonade2
 
         private void UpdateInventoryAfterBatchesMade()
         {
-            player.inventory.lemonBags = player.inventory.lemonBags - batches;
-            player.inventory.quartsOfSyrup = player.inventory.quartsOfSyrup - batches;
-            player.inventory.bagsOfIce = player.inventory.bagsOfIce - batches;
+            player.inventory.lemonBags = player.inventory.lemonBags - (batches * recipe.lemonBagsPerBatch);
+            player.inventory.quartsOfSyrup = player.inventory.quartsOfSyrup - (batches * recipe.syrupPerBatch);
+            player.inventory.bagsOfIce = player.inventory.bagsOfIce - (batches * recipe.icePerBatch);
         }
         
         // daily business generators
@@ -206,6 +205,13 @@ namespace Lemonade2
         {
             player.budget.AccessPlayerAccount = player.budget.AccessPlayerAccount + day.dailyRevenue;
             Console.WriteLine("You have $" + player.budget.AccessPlayerAccount + " at the end of " + day.dayCount + "!");
+        }
+
+        private void ResetCustomerListsForNewDay()
+        {
+            cheapskates = new List<Customer>();
+            indiscriminates = new List<Customer>();
+            sugarfiends = new List<Customer>();
         }
     }
 }

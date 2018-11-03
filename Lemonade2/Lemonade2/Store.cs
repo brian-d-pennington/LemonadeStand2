@@ -45,7 +45,7 @@ namespace Lemonade2
         }
         public void UpdatePlayersBudget(Player player)
         {
-            player.playersBudget = remainingCash;
+            player.budget.AccessPlayerAccount = remainingCash;
         }
 
         public void UpdatePlayerInventory(Player player)

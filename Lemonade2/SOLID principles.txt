@@ -1,3 +1,5 @@
+
+
 Single Responsibility Principle: I have many methods throughout the game that do very specific things and are
 literally named (update inventory, update account, etc.) However I feel like some of my classes could be better
 about sticking to single tasks. MainGame was initially supposed to only carry RunGame() but it kind of morphed

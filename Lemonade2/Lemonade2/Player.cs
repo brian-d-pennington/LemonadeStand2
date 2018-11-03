@@ -27,7 +27,7 @@ namespace Lemonade2
             playersBudget = budget.AccessPlayerAccount;
         }
 
-        public void UpdateInventoryClass()
+        public void UpdateInventoryClass() //after visit to store
         {
             inventory.lemonBags = inventory.lemonBags + lemonsFromStore;
             inventory.quartsOfSyrup = inventory.quartsOfSyrup + syrupFromStore;
