@@ -35,11 +35,8 @@ namespace Lemonade2
 
         public void RunGame()
         {
-            UI.DisplayInstructions();
-            UI.GetPlayerName();
-            UI.MoreGameInstructions();
-            UI.DailyWeatherExplainer();
-            for (int j = 0; j < 7; j++)
+            InitialInstructions();
+            for (int j = 0; j < 7; j++) //game loop
             {
 
                 day.YourDailyWeather();
@@ -47,9 +44,7 @@ namespace Lemonade2
                 {
                     UI.OffToTheStore();
                 }
-                store.ShoppingCart(player);
-                store.UpdatePlayersBudget(player);
-                store.UpdatePlayerInventory(player);
+                //PlayerGoesToStore();
                 player.UpdateInventoryClass();
                 UI.StartingRecipe();
                 if (UI.tweakRecipeResponse.ToLower() == "y")
@@ -102,8 +97,24 @@ namespace Lemonade2
                 ResetCustomerListsForNewDay();
                 
             } // close 7 day for loop
+            //final tally (if anyone makes it this far?)
         }
-        
+
+
+        private void InitialInstructions()
+        {
+            UI.DisplayInstructions();
+            UI.GetPlayerName();
+            UI.MoreGameInstructions();
+            UI.DailyWeatherExplainer();
+        }
+
+        private void PlayerGoesToStore()
+        {
+            store.ShoppingCart(player);
+            store.UpdatePlayersBudget(player);
+            store.UpdatePlayerInventory(player);
+        }
         private void BatchesToMake()
         {
             Console.WriteLine("Finally, how many batches do you want to make today?");
