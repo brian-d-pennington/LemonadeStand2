@@ -27,6 +27,16 @@ namespace Lemonade2
                 lemonBagsPerBatch++;
                 Console.WriteLine("One part lemon added.");
             }
+            else if (addLemon.ToLower() == "n")
+            {
+                Console.WriteLine("How about subtract one part lemon? Y/N");
+                string subtractLemon = Console.ReadLine();
+                if (subtractLemon.ToLower() == "y")
+                {
+                    Console.WriteLine("One part lemon taken away.");
+                    lemonBagsPerBatch--;
+                }
+            }
 
             Console.WriteLine("Add one part syrup? Y/N (not gonna let you go beyond one more, for public health concerns..");
             string addSyrup = Console.ReadLine();
@@ -35,13 +45,32 @@ namespace Lemonade2
                 syrupPerBatch++;
                 Console.WriteLine("One part syrup added.");
             }
-
+            else if (addSyrup.ToLower() == "n")
+            {
+                Console.WriteLine("How about subtract one part syrup? Y/N");
+                string subtractSyrup = Console.ReadLine();
+                if (subtractSyrup.ToLower() == "y")
+                {
+                    Console.WriteLine("One part syrup lowered.");
+                    syrupPerBatch--;
+                }
+            }
             Console.WriteLine("Add one more part ice? Not a bad idea on scorching days.. Y/N");
             string addIce = Console.ReadLine();
             if (addIce.ToLower() == "y")
             {
                 icePerBatch++;
                 Console.WriteLine("One part ice added.");
+            }
+            else if (addIce.ToLower() == "n")
+            {
+                Console.WriteLine("How about subtract one part ice? Y/N");
+                string subtractIce = Console.ReadLine();
+                if (subtractIce.ToLower() == "y")
+                {
+                    Console.WriteLine("One part ice removed.");
+                    icePerBatch--;
+                }
             }
         }
 

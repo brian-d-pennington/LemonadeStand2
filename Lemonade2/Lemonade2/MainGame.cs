@@ -38,7 +38,6 @@ namespace Lemonade2
             InitialInstructions();
             for (int j = 0; j < 7; j++) //game loop
             {
-
                 day.YourDailyWeather();
                 if (day.dayCount == 1)
                 {
