@@ -122,6 +122,11 @@ namespace Lemonade2
             Console.WriteLine("Also, a batch is only good for an afternoon, considering the melting ice and all.");
             Console.WriteLine("So.. how many batches do you want to make?");
             batches = Int32.Parse(Console.ReadLine());
+            BatchesCannotExceedInventory();
+        }
+
+        private void BatchesCannotExceedInventory()
+        {
             if (batches > player.inventory.lemonBags || batches > player.inventory.quartsOfSyrup || batches > player.inventory.bagsOfIce)
             {
                 Console.WriteLine("You don't have enough ingredients to make that.");
@@ -132,11 +137,28 @@ namespace Lemonade2
         private void UpdateInventoryAfterBatchesMade()
         {
             player.inventory.lemonBags = player.inventory.lemonBags - (batches * recipe.lemonBagsPerBatch);
+            if (player.inventory.lemonBags < 0)
+            {
+                Console.WriteLine("Oops. You didn't plan well and ran out of ingredients. You will have to make less batches today.");
+                batches -= 1;
+                UpdateInventoryAfterBatchesMade();
+            }
             player.inventory.quartsOfSyrup = player.inventory.quartsOfSyrup - (batches * recipe.syrupPerBatch);
+            if (player.inventory.quartsOfSyrup < 0)
+            {
+                Console.WriteLine("Oops. You didn't plan well and ran out of ingredients. You will have to make less batches today.");
+                batches -= 1;
+                UpdateInventoryAfterBatchesMade();
+            }
             player.inventory.bagsOfIce = player.inventory.bagsOfIce - (batches * recipe.icePerBatch);
+            if (player.inventory.bagsOfIce < 0)
+            {
+                Console.WriteLine("Oops. You didn't plan well and ran out of ingredients. You will have to make less batches today.");
+                batches -= 1;
+                UpdateInventoryAfterBatchesMade();
+            }
         }
-        
-        // daily business generators
+        // daily business conditions generators
         private void CustomerTypeDayGenerator()
         {
             Random r = new Random();
