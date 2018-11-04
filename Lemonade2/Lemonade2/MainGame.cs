@@ -45,7 +45,7 @@ namespace Lemonade2
                     UI.OffToTheStore();
                 }
                 PlayerGoesToStore();
-                player.UpdateInventoryClass();
+                
                 UI.StartingRecipe();
                 if (UI.tweakRecipeResponse.ToLower() == "y")
                 {
@@ -114,6 +114,7 @@ namespace Lemonade2
             store.ShoppingCart(player);
             store.UpdatePlayersBudget(player);
             store.UpdatePlayerInventory(player);
+            player.UpdateInventoryClass();
         }
         private void BatchesToMake()
         {
@@ -139,23 +140,23 @@ namespace Lemonade2
             player.inventory.lemonBags = player.inventory.lemonBags - (batches * recipe.lemonBagsPerBatch);
             if (player.inventory.lemonBags < 0)
             {
-                Console.WriteLine("Oops. You didn't plan well and ran out of ingredients. You will have to make less batches today.");
-                batches -= 1;
-                UpdateInventoryAfterBatchesMade();
+                Console.WriteLine("Oops. You didn't keep track of your ingredients & recipe. You need to go back to the store and buy a few more things.");
+                PlayerGoesToStore();
+                BatchesToMake();
             }
             player.inventory.quartsOfSyrup = player.inventory.quartsOfSyrup - (batches * recipe.syrupPerBatch);
             if (player.inventory.quartsOfSyrup < 0)
             {
-                Console.WriteLine("Oops. You didn't plan well and ran out of ingredients. You will have to make less batches today.");
-                batches -= 1;
-                UpdateInventoryAfterBatchesMade();
+                Console.WriteLine("Oops. You didn't keep track of your ingredients & recipe. You need to go back to the store and buy a few more things.");
+                PlayerGoesToStore();
+                BatchesToMake();
             }
             player.inventory.bagsOfIce = player.inventory.bagsOfIce - (batches * recipe.icePerBatch);
             if (player.inventory.bagsOfIce < 0)
             {
-                Console.WriteLine("Oops. You didn't plan well and ran out of ingredients. You will have to make less batches today.");
-                batches -= 1;
-                UpdateInventoryAfterBatchesMade();
+                Console.WriteLine("Oops. You didn't keep track of your ingredients & recipe. You need to go back to the store and buy a few more things.");
+                PlayerGoesToStore();
+                BatchesToMake();
             }
         }
         // daily business conditions generators
