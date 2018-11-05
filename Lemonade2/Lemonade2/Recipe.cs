@@ -78,7 +78,7 @@ namespace Lemonade2
         {
             if (day.dayCount != 1)
             {
-                Console.WriteLine("As of now your recipe is now" + lemonBagsPerBatch + " part lemon, " + syrupPerBatch + " part syrup, and " + icePerBatch + " part ice.");
+                Console.WriteLine("As of now your recipe is " + lemonBagsPerBatch + " part lemon, " + syrupPerBatch + " part syrup, and " + icePerBatch + " part ice.");
             }
 
         }

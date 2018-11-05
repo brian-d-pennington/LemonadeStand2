@@ -79,8 +79,14 @@ namespace Lemonade2
         public static void ExplainPrice()
         {
             Console.WriteLine("The default price for a cup* of your lemonade is $1. Would you like to test your luck and charge $2, $3, or $4?");
-            Console.WriteLine("just enter Y/N for now");
             Console.WriteLine("(don't worry about cup costs and inventory. Turns out you steal them from your real job)");
+            Console.WriteLine("Y/N ?");
+            adjustPrice = Console.ReadLine();
+        }
+
+        public static void UpdatedPrice(Recipe recipe)
+        {
+            Console.Write("You have the price set at $" + recipe.whatToCharge + ". Would you like to change that? Y/N ");
             adjustPrice = Console.ReadLine();
         }
 

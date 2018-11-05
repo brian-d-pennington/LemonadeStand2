@@ -59,7 +59,15 @@ namespace Lemonade2
                 {
                     Console.WriteLine("Cool. Why overthink it eh?");
                 }
-                UI.ExplainPrice();
+                if (day.dayCount == 1)
+                {
+                    UI.ExplainPrice();
+                }
+                else
+                {
+                    UI.UpdatedPrice(recipe);
+                }
+
                 if (UI.adjustPrice.ToLower() == "y")
                 {
                     recipe.ChargeMore();
@@ -213,7 +221,11 @@ namespace Lemonade2
             else
             {
                 Console.WriteLine("You lost " + day.lostCustomers + " potential customers today. Consider tweaking your recipe or lowering your price.");
-                Console.WriteLine("(hint: it's probably evident in the numbers whom you turned away)");
+                if (day.dayCount == 1)
+                {
+                    Console.WriteLine("(hint: it's probably evident in the numbers whom you turned away)");
+                }
+                
             }
         }
 
