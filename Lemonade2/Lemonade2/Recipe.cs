@@ -74,6 +74,15 @@ namespace Lemonade2
             }
         }
 
+        public void DisplayTweakedRecipe(Day day)
+        {
+            if (day.dayCount != 1)
+            {
+                Console.WriteLine("As of now your recipe is now" + lemonBagsPerBatch + " part lemon, " + syrupPerBatch + " part syrup, and " + icePerBatch + " part ice.");
+            }
+
+        }
+
         public void RecipeRatioReminder()
         {
             Console.WriteLine("Now your recipe is " + lemonBagsPerBatch + " part(s) lemon, " + syrupPerBatch + " part(s) syrup, and " + icePerBatch + " part(s) ice.");

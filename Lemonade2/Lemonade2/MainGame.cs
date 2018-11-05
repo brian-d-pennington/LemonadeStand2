@@ -44,8 +44,8 @@ namespace Lemonade2
                     UI.OffToTheStore();
                 }
                 PlayerGoesToStore();
-                
-                UI.StartingRecipe();
+                recipe.DisplayTweakedRecipe(day);
+                UI.StartingRecipe(day);
                 if (UI.tweakRecipeResponse.ToLower() == "y")
                 {
                     recipe.RecipeTweak();
@@ -53,7 +53,7 @@ namespace Lemonade2
                 else if (UI.tweakRecipeResponse.ToLower() != "n")
                 {
                     Console.WriteLine("please tyype morre crarefullyslijo");
-                    UI.StartingRecipe();
+                    UI.StartingRecipe(day);
                 }
                 else
                 {

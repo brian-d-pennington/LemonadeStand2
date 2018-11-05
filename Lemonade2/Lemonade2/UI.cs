@@ -66,9 +66,13 @@ namespace Lemonade2
             System.Threading.Thread.Sleep(2000); // make longer later
         }
 
-        public static void StartingRecipe()
+        public static void StartingRecipe(Day day)
         {
-            Console.WriteLine("So like I said, the default lemonade recipe is 1 part lemons, 1 part sugar, and one part ice");
+            if (day.dayCount == 1)
+            {
+                Console.WriteLine("So like I said, the default lemonade recipe is 1 part lemons, 1 part sugar, and one part ice");
+            }
+            
             Console.WriteLine("Do you think you'd like to tweak the recipe? Y/N");
             tweakRecipeResponse = Console.ReadLine();
         }
